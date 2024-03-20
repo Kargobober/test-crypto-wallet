@@ -1,0 +1,25 @@
+@keyframes gradientFlow {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 75% 75%; }
+  50% { background-position: 0% 100%; }
+  75% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+.section {
+  height: 100vh;
+  height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(0deg, rgb(0, 15, 92), rgb(6, 230, 220), #ffffff, rgb(0, 15, 92));
+  background-size: 300% 300%;
+  animation: gradientFlow 20s ease infinite;
+}
+
+.btn {
+  width: fit-content;
+}
