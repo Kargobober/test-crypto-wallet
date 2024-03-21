@@ -1,0 +1,10 @@
+.display {
+  height: calc(100% - 136px);
+  padding: 16px;
+}
+
+.walletAcc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
