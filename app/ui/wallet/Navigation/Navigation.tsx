@@ -8,7 +8,7 @@ export const Navigation = () => {
   const { wallet, hasProvider, isConnecting, connectMetaMask } = useMetaMask()
 
   return (
-    <div className={styles.navigation}>
+    <section className={styles.navigation}>
       <div className={styles.flexContainer}>
         <div className={styles.leftNav}>Next + React + MetaMask</div>
         <div className={styles.rightNav}>
@@ -34,6 +34,6 @@ export const Navigation = () => {
           }
         </div>
       </div>
-    </div>
+    </section>
   )
 }

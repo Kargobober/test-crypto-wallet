@@ -18,3 +18,8 @@ a {
 .linkInButton.linkInButton {
   color: red;
 }
+
+.text_size_small {
+  font-size: 12px;
+  line-height: 1.05;
+}

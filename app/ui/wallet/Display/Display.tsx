@@ -1,15 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useMetaMask } from '@/app/lib/hooks/useMetaMask';
-import { formatChainAsNum } from '@/app/lib/utils';
 import styles from './Display.module.css';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { chains } from '@/app/lib/constants';
-import { ChainItem } from '../ChainItem';
+import { Exchanger } from '../Exchanger';
 
 export const Display = () => {
   const { wallet, changeCurrentChain } = useMetaMask();
-
-  console.log({wallet});
 
   // hex of current chain
   const [currentChain, setCurrentChain] = useState('');
@@ -28,7 +25,7 @@ export const Display = () => {
   }, [wallet.chainId]);
 
   return (
-    <div className={styles.display}>
+    <section className={styles.display}>
       {wallet.accounts.length > 0 &&
         <>
           <div className={styles.walletAcc}>Wallet Accounts: {wallet.accounts[0]}</div>
@@ -47,8 +44,10 @@ export const Display = () => {
           </FormControl>
 
           <div>Wallet Balance: {wallet.balance}</div>
+
+          <Exchanger />
         </>
       }
-    </div>
+    </section>
   )
 }
