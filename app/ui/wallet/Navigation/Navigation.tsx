@@ -1,6 +1,7 @@
 import { useMetaMask } from '@/app/lib/hooks/useMetaMask';
 import { formatAddress } from '@/app/lib/utils';
 import styles from './Navigation.module.css';
+import { Button } from '@mui/material';
 
 export const Navigation = () => {
 
@@ -17,9 +18,9 @@ export const Navigation = () => {
             </a>
           }
           {window.ethereum?.isMetaMask && wallet.accounts.length < 1 &&
-            <button disabled={isConnecting} onClick={connectMetaMask}>
+            <Button disabled={isConnecting} onClick={connectMetaMask} variant='contained'>
               Connect MetaMask
-            </button>
+            </Button>
           }
           {hasProvider && wallet.accounts.length > 0 &&
             <a
