@@ -12,3 +12,9 @@
 .sourceText {
   display: inline;
 }
+
+.buttonSubmit.buttonSubmit {
+  min-width: fit-content;
+  width: 200px;
+  text-transform: initial;
+}
