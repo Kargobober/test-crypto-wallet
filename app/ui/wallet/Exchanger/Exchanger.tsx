@@ -3,6 +3,7 @@ import styles from './Exchanger.module.css';
 import { Box, Tab, Tabs } from '@mui/material';
 import { CustomTabPanel } from '../CutomTabPanel';
 import { MainContent } from './MainContent';
+import { SendingPanel } from '../SendingPanel';
 
 function a11yProps(index: number) {
   return {
@@ -20,9 +21,14 @@ function Exchanger() {
 
   return (
     <Box className={styles.exchangerWrapper}>
-      <Tabs value={valueTab} onChange={handleChangeTab} aria-label="tabs for exchange modes">
-        <Tab label="Fast buy" {...a11yProps(0)} />
-        <Tab label="Fast Exchange" {...a11yProps(1)} />
+      <Tabs
+        value={valueTab}
+        onChange={handleChangeTab}
+        aria-label="tabs for exchange modes"
+      >
+        <Tab label="Fast buy" {...a11yProps(0)} className={styles.tab} />
+        <Tab label="Fast Exchange" {...a11yProps(1)} className={styles.tab} />
+        <Tab label="Fast Send" {...a11yProps(2)} className={styles.tab} />
       </Tabs>
 
       <CustomTabPanel value={valueTab} index={0}>
@@ -30,6 +36,9 @@ function Exchanger() {
       </CustomTabPanel>
       <CustomTabPanel value={valueTab} index={1}>
         <MainContent mode={valueTab} />
+      </CustomTabPanel>
+      <CustomTabPanel value={valueTab} index={2}>
+        <SendingPanel />
       </CustomTabPanel>
     </Box>
   )

@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  max-width: 300px;
+  background-color: rgb(215, 215, 215);;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.button.button {
+  margin: 20px 0 0;
+  min-width: fit-content;
+  width: 200px;
+}
+
+.error {
+  color: red;
+}
+
+.chain {
+  margin: 10px 0;
+}

@@ -5,3 +5,9 @@
   padding: 10px;
   margin-top: 10px;
 }
+
+@media screen and (max-width: 460px) {
+  .tab.tab {
+    padding: 5px;
+  }
+}

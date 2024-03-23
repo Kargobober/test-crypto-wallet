@@ -151,7 +151,7 @@ const Widget: FC<TProps> = ({ mode }) => {
         sx={{
           '& .Mui-disabled': {
             color: 'black',
-            '-webkit-text-fill-color': 'rgb(0, 0, 0)',
+            WebkitTextFillColor: 'rgb(0, 0, 0)',
           }
         }}
         autoComplete='off'

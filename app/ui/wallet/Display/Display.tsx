@@ -13,7 +13,6 @@ export const Display = () => {
 
   const handleChange = async (event: SelectChangeEvent) => {
     try {
-      console.log({event});
       await changeCurrentChain(event.target.value);
     } catch (err) {
       console.log({error: err})

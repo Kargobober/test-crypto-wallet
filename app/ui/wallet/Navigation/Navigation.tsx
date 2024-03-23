@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 
 export const Navigation = () => {
 
-  const { wallet, hasProvider, isConnecting, connectMetaMask } = useMetaMask()
+  const { wallet, hasProvider, isConnecting, connectMetaMask } = useMetaMask();
 
   return (
     <section className={styles.navigation}>
