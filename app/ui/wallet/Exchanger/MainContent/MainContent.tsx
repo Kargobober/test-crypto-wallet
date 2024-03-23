@@ -16,7 +16,7 @@ const MainContent: FC<TProps> = ({ mode }) => {
 
   return (
     <div className={styles.container}>
-      <Widget />
+      <Widget mode={mode} />
       <div className={`${styles.additionalDataContainer} text_size_small`}>
         <p>1.00 {leftCurrency} = {currencyFactor} {rightCurrency}</p>
         <div className={styles.sourceContainer}>

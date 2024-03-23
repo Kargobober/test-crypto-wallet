@@ -3,4 +3,6 @@
   padding: 8px;
   align-items: center;
   column-gap: 4px;
+
+  border-radius: 5px;
 }

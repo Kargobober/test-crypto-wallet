@@ -1,3 +1,31 @@
 .container {
   display: flex;
 }
+
+.currencies {
+  display: flex;
+}
+
+.switcher.switcher {
+  padding: 7px;
+  border-radius: 50%;
+  min-width: initial;
+  width: fit-content;
+  height: fit-content;
+  transition: transform .2s ease-in;
+}
+
+.switcher_turned {
+  transform: rotateZ(180deg);
+}
+
+.svg > path {
+  stroke: rgb(255, 255, 255);
+  stroke-width: 1.2;
+}
+
+.input {
+  background-color: rgb(215, 215, 215);;
+  border-radius: 5px;
+  padding: 5px;
+}
