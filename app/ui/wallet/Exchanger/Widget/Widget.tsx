@@ -57,14 +57,7 @@ const Widget:FC<TProps> = ({ mode }) => {
             <WithIcon
               Ico={item.ico}
               text={item.name}
-              style={currentLeftCurrencyName === item.name ? (
-                {
-                  backgroundColor: 'black',
-                  color: 'white',
-                }
-              ) : (
-                {}
-              )}
+              isActive={currentLeftCurrencyName === item.name}
             />
           </li>
         ))}

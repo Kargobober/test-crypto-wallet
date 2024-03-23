@@ -5,4 +5,15 @@
   column-gap: 4px;
 
   border-radius: 5px;
+  transition: opacity .2s linear;
+}
+
+.container:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.container_active {
+  background-color: black;
+  color: white;
 }
