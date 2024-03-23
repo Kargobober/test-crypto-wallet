@@ -3,17 +3,12 @@
   flex-direction: column;
 }
 
-.additionalDataContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline
-}
-
 .sourceText {
   display: inline;
 }
 
 .buttonSubmit.buttonSubmit {
+  margin-top: 20px;
   min-width: fit-content;
   width: 200px;
   text-transform: initial;

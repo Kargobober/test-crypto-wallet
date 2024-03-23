@@ -13,7 +13,7 @@ const WithIcon: FC<TProps> = ({ Ico, text, isActive }) => {
       className={styles.container + ' ' + (isActive ? styles.container_active : '')}
     >
       <Ico width={24} height={24} />
-      <span>{text}</span>
+      <p>{text}</p>
     </div>
   )
 }

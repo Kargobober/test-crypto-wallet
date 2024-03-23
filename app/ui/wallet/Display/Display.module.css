@@ -8,3 +8,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.label.label {
+  background-color: white;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+.select {
+  background-color: white;
+}

@@ -31,13 +31,14 @@ export const Display = () => {
           <div className={styles.walletAcc}>Wallet Accounts: {wallet.accounts[0]}</div>
 
           <FormControl sx={{ marginY: 2 }}>
-            <InputLabel id="chain-select-label">Current chain</InputLabel>
+            <InputLabel id="chain-select-label" className={styles.label}>Current chain</InputLabel>
             <Select
               labelId="chain-select-label"
               id="chain-select"
               value={currentChain}
               label="Current chain"
               onChange={handleChange}
+              className={styles.select}
             >
               {chains.map(chain => <MenuItem key={chain.hex} value={chain.hex}>{chain.fullName}</MenuItem>)}
             </Select>
