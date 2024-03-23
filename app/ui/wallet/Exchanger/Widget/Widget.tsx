@@ -46,7 +46,14 @@ const Widget: FC<TProps> = ({ mode }) => {
 
     setSwitchMode(prev => !prev);
     e.currentTarget.classList.toggle(styles.switcher_turned);
-  }, [cryptocurrencies, currencies, currentLeftCurrencyName, currentRightCurrencyName, mode, switchMode]);
+  }, [
+    cryptocurrencies,
+    currencies,
+    currentLeftCurrencyName,
+    currentRightCurrencyName,
+    mode,
+    switchMode
+  ]);
 
   // обработчик для Select
   const handleLeftChange = useCallback((e: SelectChangeEvent) => {
@@ -72,12 +79,8 @@ const Widget: FC<TProps> = ({ mode }) => {
   };
 
   useEffect(() => {
-    setValueRightInput(currencyFactor * valueLeftInput);
-  }, [valueLeftInput, currencyFactor]);
-
-  useEffect(() => {
-    setValueLeftInput(valueRightInput / currencyFactor);
-  }, [valueRightInput, currencyFactor]);
+    setValueRightInput(currencyFactor * valueLeftInput * (1 - commission / 100));
+  }, [valueLeftInput, currencyFactor, commission]);
 
   return (
     <div className={styles.container}>
@@ -145,11 +148,17 @@ const Widget: FC<TProps> = ({ mode }) => {
       <Input
         id='rightInput'
         className={styles.rightInput}
+        sx={{
+          '& .Mui-disabled': {
+            color: 'black',
+            '-webkit-text-fill-color': 'rgb(0, 0, 0)',
+          }
+        }}
         autoComplete='off'
         disableUnderline
         type='number'
         value={valueRightInput}
-        onChange={(e) => setValueRightInput(Number(e.target.value))}
+        disabled
         endAdornment={
           <InputAdornment position='end'>
             {currentRightCurrencyName}
