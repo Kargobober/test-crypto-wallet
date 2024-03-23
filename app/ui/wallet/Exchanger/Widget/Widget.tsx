@@ -19,52 +19,65 @@ const Widget: FC<TProps> = ({ mode }) => {
   const [leftCurrencies, setLeftCurrencies] = useState<Array<Currency>>(cryptocurrencies);
   const [currentLeftCurrencyName, setCurrentLeftCurrencyName] = useState(leftCurrencies[0].name);
 
-  const [rightCurrencies, setRightCurrencies] = useState<Array<Currency>>(currencies);
-  const [currentRightCurrencyName, setCurrentRightCurrencyName] = useState(rightCurrencies[0].name);
+  const [rightCurrencies, setRightCurrencies] = useState<Array<Currency>>(mode === 0 ? currencies : cryptocurrencies);
+  const [currentRightCurrencyName, setCurrentRightCurrencyName] = useState(rightCurrencies[mode === 0 ? 0 : 1].name);
 
   const [valueLeftInput, setValueLeftInput] = useState<number>(0);
   const [valueRightInput, setValueRightInput] = useState<number>(0);
 
+  // коэффициент перевода из одной валюты в другую. Хардкод
   const [currencyFactor, setCurrencyFactor] = useState<number>(2542.06);
+  // комиссия за транзакцию
   const [commission, setCommission] = useState<number>(10);
 
   const handleSwitch = useCallback((e: SyntheticEvent) => {
     setCurrentLeftCurrencyName(currentRightCurrencyName);
     setCurrentRightCurrencyName(currentLeftCurrencyName);
 
-    if (!switchMode) {
-      setLeftCurrencies(cryptocurrencies);
-      setRightCurrencies(currencies);
-    } else {
-      setLeftCurrencies(currencies);
-      setRightCurrencies(cryptocurrencies);
+    if (mode === 0) { // режим покупки крипты
+      if (!switchMode) {
+        setLeftCurrencies(cryptocurrencies);
+        setRightCurrencies(currencies);
+      } else {
+        setLeftCurrencies(currencies);
+        setRightCurrencies(cryptocurrencies);
+      }
     }
 
     setSwitchMode(prev => !prev);
     e.currentTarget.classList.toggle(styles.switcher_turned);
-  }, [cryptocurrencies, currencies, currentLeftCurrencyName, currentRightCurrencyName, switchMode]);
+  }, [cryptocurrencies, currencies, currentLeftCurrencyName, currentRightCurrencyName, mode, switchMode]);
 
   // обработчик для Select
   const handleLeftChange = useCallback((e: SelectChangeEvent) => {
+    if (mode === 1 && e.target.value === currentRightCurrencyName) {
+      setCurrentRightCurrencyName(currentLeftCurrencyName);
+    }
     setCurrentLeftCurrencyName(e.target.value as string);
-  }, []);
+  }, [currentLeftCurrencyName, currentRightCurrencyName, mode]);
 
   // обработчик клика по кнопке валюты (с свг-шкой)
-  const onCurrencyChange = (name: string, mode: 'left' | 'right') => (evt: SyntheticEvent) => {
-    if (mode === 'left') {
+  const onCurrencyChange = (name: string, side: 'left' | 'right') => (evt: SyntheticEvent) => {
+    if (side === 'left') {
+      if (mode === 1 && name === currentRightCurrencyName) {
+        setCurrentRightCurrencyName(currentLeftCurrencyName);
+      }
       setCurrentLeftCurrencyName(name);
     } else {
+      if (mode === 1 && name === currentLeftCurrencyName) {
+        setCurrentLeftCurrencyName(currentRightCurrencyName);
+      }
       setCurrentRightCurrencyName(name);
     }
-  }
+  };
 
   useEffect(() => {
     setValueRightInput(currencyFactor * valueLeftInput);
-  }, [valueLeftInput, currencyFactor])
+  }, [valueLeftInput, currencyFactor]);
 
   useEffect(() => {
     setValueLeftInput(valueRightInput / currencyFactor);
-  }, [valueRightInput, currencyFactor])
+  }, [valueRightInput, currencyFactor]);
 
   return (
     <div className={styles.container}>
