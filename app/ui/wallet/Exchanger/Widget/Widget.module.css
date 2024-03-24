@@ -1,0 +1,130 @@
+.container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 4fr auto 4fr;
+  grid-template-rows: repeat(4, minmax(min-content, max-content));
+  column-gap: 20px;
+}
+
+.leftCurrencies {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  display: flex;
+  gap: 10px;
+}
+
+.rightCurrencies {
+  grid-row: 1 / 2;
+  grid-column: 3 / 4;
+  display: flex;
+  gap: 10px;
+}
+
+.leftLabel {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  margin-top: 20px;
+}
+
+.rightLabel {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+  margin-top: 20px;
+}
+
+.switcher.switcher {
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+  justify-self: center;
+  padding: 7px;
+  border-radius: 50%;
+  min-width: initial;
+  width: fit-content;
+  height: fit-content;
+  transition: transform .2s ease-in;
+}
+
+.switcher_turned {
+  transform: rotateZ(180deg);
+}
+
+.svg > path {
+  stroke: rgb(255, 255, 255);
+  stroke-width: 1.2;
+}
+
+.leftInput {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+  background-color: rgb(215, 215, 215);;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.rightInput {
+  grid-row: 3 / 4;
+  grid-column: 3 / 4;
+  background-color: rgb(215, 215, 215);;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.additionalDataContainer {
+  grid-row: 4 / 5;
+  grid-column: 1 / 4;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: baseline
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: initial;
+    row-gap: 10px;
+  }
+
+  .leftCurrencies {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  .rightCurrencies {
+    grid-row: 5 / 6;
+    grid-column: 1 / 2;
+  }
+
+  .leftLabel {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  .rightLabel {
+    grid-row: 6 / 7;
+    grid-column: 1 / 2;
+  }
+
+  .leftInput {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+
+  .rightInput {
+    grid-row: 7 / 8;
+    grid-column: 1 / 2;
+  }
+
+  .switcher.switcher {
+    grid-row: 4 / 5;
+    grid-column: 1 / 2;
+    transform: rotateZ(90deg);
+  }
+
+  .additionalDataContainer {
+    grid-row: 8 / 9;
+    grid-column: 1 / 2;
+  }
+}

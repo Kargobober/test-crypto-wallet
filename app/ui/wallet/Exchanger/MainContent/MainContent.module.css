@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sourceText {
+  display: inline;
+}
+
+.buttonSubmit.buttonSubmit {
+  margin-top: 20px;
+  min-width: fit-content;
+  width: 200px;
+  text-transform: initial;
+}

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  column-gap: 4px;
+  background-color: #d7d7d7;
+  border-radius: 14px;
+  transition: opacity background-color .2s linear;
+}
+
+.container:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.container_active {
+  background-color: black;
+  color: white;
+}

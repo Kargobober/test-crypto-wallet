@@ -1,10 +1,10 @@
-import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import type { Metadata, Viewport } from "next";
+import { Roboto } from 'next/font/google';
 import { CssBaseline } from "@mui/material";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'; // https://mui.com/material-ui/integrations/nextjs/
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto({ weight: '400', subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Crypto Wallet",

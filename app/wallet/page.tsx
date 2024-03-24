@@ -7,7 +7,7 @@ import styles from './page.module.css';
 function Page() {
   return (
     <MetaMaskContextProvider>
-      <div className={styles.appContainer}>
+      <div className={styles.walletContainer}>
         <Navigation />
         <Display />
       </div>

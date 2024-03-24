@@ -1,13 +1,14 @@
 import { useMetaMask } from '@/app/lib/hooks/useMetaMask';
 import { formatAddress } from '@/app/lib/utils';
 import styles from './Navigation.module.css';
+import { Button } from '@mui/material';
 
 export const Navigation = () => {
 
-  const { wallet, hasProvider, isConnecting, connectMetaMask } = useMetaMask()
+  const { wallet, hasProvider, isConnecting, connectMetaMask } = useMetaMask();
 
   return (
-    <div className={styles.navigation}>
+    <section className={styles.navigation}>
       <div className={styles.flexContainer}>
         <div className={styles.leftNav}>Next + React + MetaMask</div>
         <div className={styles.rightNav}>
@@ -17,9 +18,9 @@ export const Navigation = () => {
             </a>
           }
           {window.ethereum?.isMetaMask && wallet.accounts.length < 1 &&
-            <button disabled={isConnecting} onClick={connectMetaMask}>
+            <Button disabled={isConnecting} onClick={connectMetaMask} variant='contained'>
               Connect MetaMask
-            </button>
+            </Button>
           }
           {hasProvider && wallet.accounts.length > 0 &&
             <a
@@ -33,6 +34,6 @@ export const Navigation = () => {
           }
         </div>
       </div>
-    </div>
+    </section>
   )
 }

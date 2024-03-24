@@ -11,3 +11,16 @@ export const formatChainAsNum = (chainIdHex: string) => {
 export const formatAddress = (addr: string) => {
   return `${addr.substring(0, 8)}...`
 }
+
+/**
+ * Получить число знаков после запятой для переданного числа
+ */
+export const getDecimalPlaces = (x: number) => {
+  const myString = x.toString();
+
+  if (myString.includes('.')) {
+    return myString.split('.').pop()!.length;
+  } else {
+    return 0;
+  }
+};
