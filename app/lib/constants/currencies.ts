@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { FC, SVGProps } from "react";
 import USDSvg from '@/public/currencies/dollar-minimalistic-svgrepo-com.svg';
 import EURSvg from '@/public/currencies/euro-svgrepo-com.svg';
 import RUBSvg from '@/public/currencies/ruble-circle-svgrepo-com.svg';
@@ -7,11 +7,11 @@ import ETHSvg from '@/public/currencies/eth-svgrepo-com.svg';
 
 export class Currency {
   name: string;
-  ico: ReactNode;
+  ico: FC<SVGProps<SVGElement>>;
 
   constructor(
     name: string,
-    ico: ReactNode,
+    ico: FC<SVGProps<SVGElement>>,
   ) {
     this.name = name;
     this.ico = ico;
