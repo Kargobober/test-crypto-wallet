@@ -1,4 +1,4 @@
-import { FC, ReactNode, SVGProps } from "react";
+import { FC, SVGProps } from "react";
 import USDSvg from '@/public/currencies/dollar-minimalistic-svgrepo-com.svg';
 import EURSvg from '@/public/currencies/euro-svgrepo-com.svg';
 import RUBSvg from '@/public/currencies/ruble-circle-svgrepo-com.svg';
